@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CivicGuide AI</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .step {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f3f4f6;
+            border-radius: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #e0e7ff;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .warning {
+            padding: 12px;
+            background: #fff7ed;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .status {
+            font-size: 14px;
+            color: #6b7280;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🏛️ CivicGuide AI</h1>
+
+    <p class="subtitle">
+        Human-friendly civic guidance powered by WebMCP.
+    </p>
+
+    <div class="card">
+
+        <h2>Describe your civic problem</h2>
+
+        <textarea
+            id="situation"
+            placeholder="Example: I received a traffic challan in Kolkata, but I believe the violation was recorded incorrectly."
+        ></textarea>
+
+        <br>
+
+        <button id="analyzeBtn">
+            Analyze My Situation
+        </button>
+
+        <div id="status" class="status"></div>
+
+    </div>
+
+
+    <div id="result" class="card hidden">
+
+        <h2 id="scenarioTitle"></h2>
+
+        <div id="scenarioTag" class="tag"></div>
+
+        <p id="explanation"></p>
+
+        <h3>Suggested Roadmap</h3>
+
+        <div id="steps"></div>
+
+        <h3>Information You May Need</h3>
+
+        <div id="missing"></div>
+
+        <p>
+            <strong>Confidence:</strong>
+            <span id="confidence"></span>
+        </p>
+
+        <div id="humanReview" class="warning hidden">
+            ⚠️ Human review may be appropriate for this situation.
+        </div>
+
+    </div>
+
+
+    <script src="civicguide.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
